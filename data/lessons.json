@@ -1,0 +1,18 @@
+[
+    { "id": 1, "date": "Tue 7 Oct", "title": "Intro to Flask and Setup", "focus": "Micro-framework concept, client–server, Hello World." },
+    { "id": 2, "date": "Mon 13 Oct", "title": "Routes and Templates", "focus": "Templates, render_template, Jinja, base.html." },
+    { "id": 3, "date": "Tue 14 Oct", "title": "Tailwind & DaisyUI Basics", "focus": "CDN setup; navbar, cards." },
+    { "id": 4, "date": "Mon 20 Oct", "title": "Passing Data to Templates", "focus": "Lists/dicts → Jinja loops; Team page." },
+    { "id": 5, "date": "Tue 21 Oct", "title": "Forms & User Input", "focus": "GET/POST, request.form, validation." },
+    { "id": 6, "date": "Mon 27 Oct", "title": "List Storage (Guestbook)", "focus": "Runtime list store; PRG pattern." },
+    { "id": 7, "date": "Tue 28 Oct", "title": "Dictionaries (Recipes)", "focus": "Multi-field entries; conditional rendering." },
+    { "id": 8, "date": "Mon 3 Nov", "title": "Routes + Forms + Data (Movies)", "focus": "Multi-page; add/list; clear." },
+    { "id": 9, "date": "Tue 4 Nov", "title": "Project Launch", "focus": "Task + user stories; scaffold." },
+    { "id": 10, "date": "Mon 17 Nov", "title": "Project Dev — Milestone 1", "focus": "Forms + storage; check-ins." },
+    { "id": 11, "date": "Tue 18 Nov", "title": "Project Completion & Video", "focus": "Finish, test, record video." },
+    { "id": 12, "date": "Mon 24 Nov", "title": "Flash Messages", "focus": "flash(); DaisyUI alerts." },
+    { "id": 13, "date": "Tue 25 Nov", "title": "Static Files & Images", "focus": "url_for('static'); images/CSS." },
+    { "id": 14, "date": "Mon 1 Dec", "title": "DaisyUI Themes", "focus": "data-theme; redesign." },
+    { "id": 15, "date": "Tue 2 Dec", "title": "Hackathon", "focus": "Rapid build; present." }
+  ]
+  

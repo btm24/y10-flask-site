@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <title>Year 10 Flask Web Apps — Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Tailwind + DaisyUI (CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="/assets/css/site.css" rel="stylesheet" />
+  <!-- Prism syntax highlight -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css">
+</head>
+<body class="bg-base-200">
+  <div id="header"></div>
+
+  <main class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div id="sidebar" class="lg:col-span-1"></div>
+
+    <section class="lg:col-span-2">
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h1 class="card-title">Welcome!</h1>
+          <p>Use this site to review lessons or catch up on missed work. Each lesson includes focus points, core exercises, extension tasks, and embedded code examples.</p>
+          <a class="btn btn-primary mt-4" href="/lessons/index.html">Go to Lessons</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="/assets/js/loader.js"></script>
+  <script>loadPartials();</script>
+</body>
+</html>

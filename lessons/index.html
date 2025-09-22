@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <title>Lessons — Year 10 Flask Web Apps</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css">
+</head>
+<body class="bg-base-200">
+  <div id="header"></div>
+
+  <main class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div id="sidebar" class="lg:col-span-1"></div>
+
+    <section class="lg:col-span-2">
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h1 class="card-title">All Lessons</h1>
+          <div id="lessons-list" class="grid md:grid-cols-2 gap-4 mt-4"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="/assets/js/loader.js"></script>
+  <script>
+    loadPartials().then(async () => {
+      const res = await fetch('/data/lessons.json'); 
+      const list = await res.json();
+      const wrap = document.getElementById('lessons-list');
+      wrap.innerHTML = list.map(l => `
+        <a class="card bg-base-100 border hover:border-primary transition" href="/lessons/lesson.html?id=${l.id}">
+          <div class="card-body">
+            <div class="text-sm opacity-70">${l.date}</div>
+            <h2 class="card-title">Lesson ${l.id}: ${l.title}</h2>
+            <p>${l.focus}</p>
+          </div>
+        </a>
+      `).join('');
+    });
+  </script>
+</body>
+</html>

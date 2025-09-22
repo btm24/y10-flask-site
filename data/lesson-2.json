@@ -1,0 +1,36 @@
+{
+    "id": 2,
+    "date": "Mon 13 Oct",
+    "title": "Routes and Templates",
+    "focus": "Templates folder, render_template, Jinja basics, base.html inheritance.",
+    "keyTeaching": [
+      "Where templates live and how Flask finds them.",
+      "Jinja placeholders {{ }} and {% %}.",
+      "Avoid repetition using base.html + {% extends %}."
+    ],
+    "coreExercises": [
+      "Create /contact route + template with name variable",
+      "If show_email is True show email, else 'hidden'",
+      "Add favourite hobby variable to /about"
+    ],
+    "extensions": [
+      "Add a list of 3 friends and loop in /about",
+      "Add simple inline CSS (we’ll use Tailwind later)"
+    ],
+    "codeBlocks": [
+      {
+        "label": "app.py — render_template routes",
+        "lang": "python",
+        "code": "from flask import Flask, render_template\n\napp = Flask(__name__)\n\n@app.route('/')\ndef index():\n    return render_template('index.html', page_title='Home')\n\n@app.route('/about')\ndef about():\n    return render_template('about.html', page_title='About Us')\n"
+      },
+      {
+        "label": "templates/base.html",
+        "lang": "markup",
+        "code": "<!doctype html>\n<html>\n<head>\n  <title>{{ page_title }}</title>\n</head>\n<body>\n  <nav>\n    <a href=\"/\">Home</a> | <a href=\"/about\">About</a>\n  </nav>\n  {% block content %}{% endblock %}\n</body>\n</html>\n"
+      }
+    ],
+    "resources": [
+      { "label": "Video: Flask Templates & Jinja2 Basics", "url": "https://www.youtube.com/watch?v=CBXH_iRKFdI" }
+    ]
+  }
+  

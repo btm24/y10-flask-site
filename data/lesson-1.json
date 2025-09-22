@@ -1,0 +1,36 @@
+{
+    "id": 1,
+    "date": "Tue 7 Oct",
+    "title": "Intro to Flask and Setup",
+    "focus": "Micro-framework concept, client–server model, VS Code setup, Hello World.",
+    "keyTeaching": [
+      "What is Flask? Micro-framework advantages.",
+      "Client–server basics: requests, responses, localhost.",
+      "Create and run a minimal Flask app."
+    ],
+    "coreExercises": [
+      "Add /hello route showing \"Hello Year 10!\"",
+      "Add /school route showing school name",
+      "Add /favourite route showing favourite subject"
+    ],
+    "extensions": [
+      "Add /today route displaying today’s date",
+      "Add /shout route that returns text in UPPERCASE"
+    ],
+    "codeBlocks": [
+      {
+        "label": "app.py — Hello World",
+        "lang": "python",
+        "code": "from flask import Flask\n\napp = Flask(__name__)\n\n@app.route('/')\ndef index():\n    return 'Hello World!'\n\nif __name__ == '__main__':\n    app.run(debug=True)\n"
+      },
+      {
+        "label": "Extra routes",
+        "lang": "python",
+        "code": "@app.route('/hello')\ndef hello():\n    return 'Hello Year 10!'\n\n@app.route('/school')\ndef school():\n    return \"St Aidan's Anglican Girls School\"\n"
+      }
+    ],
+    "resources": [
+      { "label": "Video: Flask Crash Course #1 – Hello World & Setup", "url": "https://www.youtube.com/watch?v=Z1RJmh_OqeA" }
+    ]
+  }
+  

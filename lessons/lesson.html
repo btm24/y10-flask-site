@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <title>Lesson — Year 10 Flask Web Apps</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Prism -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css">
+</head>
+<body class="bg-base-200">
+  <div id="header"></div>
+
+  <main class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div id="sidebar" class="lg:col-span-1"></div>
+
+    <section class="lg:col-span-2">
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body" id="lesson-content">
+          <!-- populated by JS -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="/assets/js/loader.js"></script>
+  <script src="/assets/js/prism-copy.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"></script>
+
+  <script>
+    (async () => {
+      await loadPartials();
+      const params = new URLSearchParams(location.search);
+      const id = params.get('id') || '1';
+      const data = await (await fetch(`/data/lesson-${id}.json`)).json();
+      const el = document.getElementById('lesson-content');
+
+      const sec = (title, html) => `
+        <div class="mt-6">
+          <h3 class="font-semibold text-lg mb-2">${title}</h3>
+          ${html}
+        </div>`;
+
+      const list = arr => `<ul class="list-disc ml-6 space-y-1">${arr.map(i=>`<li>${i}</li>`).join('')}</ul>`;
+      const olist = arr => `<ol class="list-decimal ml-6 space-y-1">${arr.map(i=>`<li>${i}</li>`).join('')}</ol>`;
+
+      const code = (lang, text) => `
+        <div class="relative group">
+          <button class="btn btn-xs btn-outline absolute right-2 top-2 opacity-0 group-hover:opacity-100" onclick="copyCode(this)">Copy</button>
+          <pre class="rounded-lg"><code class="language-${lang}">${Prism.util.encode(text)}</code></pre>
+        </div>`;
+
+      el.innerHTML = `
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <div class="text-sm opacity-70">${data.date}</div>
+            <h2 class="card-title">Lesson ${data.id}: ${data.title}</h2>
+            <p class="opacity-80">${data.focus}</p>
+          </div>
+          <a class="btn" href="/lessons/index.html">All lessons</a>
+        </div>
+
+        ${sec('Key teaching & learning', list(data.keyTeaching))}
+        ${sec('Core exercises', olist(data.coreExercises))}
+        ${sec('Extension tasks', list(data.extensions))}
+
+        ${data.codeBlocks && data.codeBlocks.length ? `
+          ${sec('Example code', data.codeBlocks.map(cb=>`
+            <h4 class="font-medium mt-4 mb-1">${cb.label}</h4>
+            ${code(cb.lang, cb.code)}
+          `).join(''))}
+        ` : ''}
+
+        ${data.resources && data.resources.length ? `
+          ${sec('Resources', data.resources.map(r=>`
+            <div class="mb-2">
+              ${r.url ? `<a class="link" href="${r.url}" target="_blank" rel="noreferrer">${r.label}</a>` : r.label}
+              ${r.pages ? `<span class="badge badge-ghost ml-2">pp. ${r.pages}</span>` : ''}
+            </div>`).join(''))}
+        ` : ''}
+      `;
+
+      Prism.highlightAll();
+    })();
+  </script>
+</body>
+</html>

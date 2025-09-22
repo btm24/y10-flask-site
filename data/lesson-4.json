@@ -1,0 +1,24 @@
+{
+    "id": 4,
+    "date": "Mon 20 Oct",
+    "title": "Passing Data to Templates (+ Mini-Challenge)",
+    "focus": "Pass lists/dicts via render_template; Jinja loops; Team page.",
+    "keyTeaching": ["Passing Python data", "Jinja for-loops", "Lists of dicts"],
+    "coreExercises": [
+      "Team list of dicts → grid of cards",
+      "Show total member count",
+      "Style with DaisyUI"
+    ],
+    "extensions": ["Theme variable", "Role badges", "Filter route /team/<role>"],
+    "codeBlocks": [
+      {
+        "label": "app.py — team routes",
+        "lang": "python",
+        "code": "from flask import Flask, render_template\napp = Flask(__name__)\nteam = [\n  {\"name\":\"Ava\",\"role\":\"Designer\"},\n  {\"name\":\"Maya\",\"role\":\"Developer\"}\n]\n@app.route('/team')\ndef team_page():\n  return render_template('team.html', team=team, count=len(team))\n"
+      }
+    ],
+    "resources": [
+      { "label": "Video: Passing Variables (render_template)", "url": "https://www.youtube.com/watch?v=Uw1D78kIRFk" }
+    ]
+  }
+  

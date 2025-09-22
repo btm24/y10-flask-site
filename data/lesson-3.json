@@ -1,0 +1,32 @@
+{
+    "id": 3,
+    "date": "Tue 14 Oct",
+    "title": "Tailwind & DaisyUI Basics",
+    "focus": "Add Tailwind + DaisyUI via CDN; build navbar and cards.",
+    "keyTeaching": [
+      "Utility-first styling with Tailwind.",
+      "Using DaisyUI components for rapid UI.",
+      "Applying a consistent layout with base.html."
+    ],
+    "coreExercises": [
+      "Add DaisyUI card to /about",
+      "Change navbar colour scheme",
+      "Add 'Send Message' button on /contact"
+    ],
+    "extensions": [
+      "Add DaisyUI theme toggle",
+      "Add an image inside a card",
+      "Create a footer"
+    ],
+    "codeBlocks": [
+      {
+        "label": "templates/base.html (with Tailwind & DaisyUI)",
+        "lang": "markup",
+        "code": "<!doctype html>\n<html>\n<head>\n  <title>{{ page_title }}</title>\n  <link href=\"https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css\" rel=\"stylesheet\">\n  <script src=\"https://cdn.tailwindcss.com\"></script>\n</head>\n<body class=\"p-6 bg-base-200\">\n  <div class=\"navbar bg-primary text-primary-content\">\n    <a class=\"btn btn-ghost text-xl\">Flask App</a>\n    <a href=\"/\" class=\"btn btn-ghost\">Home</a>\n    <a href=\"/about\" class=\"btn btn-ghost\">About</a>\n  </div>\n  <div class=\"mt-6\">{% block content %}{% endblock %}</div>\n</body>\n</html>\n"
+      }
+    ],
+    "resources": [
+      { "label": "Video: Tailwind CSS Crash Course", "url": "https://www.youtube.com/watch?v=UBOj6rqRUME" }
+    ]
+  }
+  
