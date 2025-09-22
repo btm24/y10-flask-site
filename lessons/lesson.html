@@ -1,14 +1,17 @@
 <!doctype html>
 <html lang="en" data-theme="light">
+
 <head>
   <meta charset="utf-8" />
   <title>Lesson — Year 10 Flask Web Apps</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="../assets/css/site.css" rel="stylesheet" />
   <!-- Prism -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css">
 </head>
+
 <body class="bg-base-200">
   <div id="header"></div>
 
@@ -46,8 +49,8 @@
           ${html}
         </div>`;
 
-      const list = arr => `<ul class="list-disc ml-6 space-y-1">${arr.map(i=>`<li>${i}</li>`).join('')}</ul>`;
-      const olist = arr => `<ol class="list-decimal ml-6 space-y-1">${arr.map(i=>`<li>${i}</li>`).join('')}</ol>`;
+      const list = arr => `<ul class="list-disc ml-6 space-y-1">${arr.map(i => `<li>${i}</li>`).join('')}</ul>`;
+      const olist = arr => `<ol class="list-decimal ml-6 space-y-1">${arr.map(i => `<li>${i}</li>`).join('')}</ol>`;
 
       const code = (lang, text) => `
         <div class="relative group">
@@ -70,14 +73,14 @@
         ${sec('Extension tasks', list(data.extensions))}
 
         ${data.codeBlocks && data.codeBlocks.length ? `
-          ${sec('Example code', data.codeBlocks.map(cb=>`
+          ${sec('Example code', data.codeBlocks.map(cb => `
             <h4 class="font-medium mt-4 mb-1">${cb.label}</h4>
             ${code(cb.lang, cb.code)}
           `).join(''))}
         ` : ''}
 
         ${data.resources && data.resources.length ? `
-          ${sec('Resources', data.resources.map(r=>`
+          ${sec('Resources', data.resources.map(r => `
             <div class="mb-2">
               ${r.url ? `<a class="link" href="${r.url}" target="_blank" rel="noreferrer">${r.label}</a>` : r.label}
               ${r.pages ? `<span class="badge badge-ghost ml-2">pp. ${r.pages}</span>` : ''}
@@ -89,4 +92,5 @@
     })();
   </script>
 </body>
+
 </html>
