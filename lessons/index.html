@@ -26,10 +26,10 @@
 
   <div id="footer"></div>
 
-  <script src="/assets/js/loader.js"></script>
+  <script src="../assets/js/loader.js"></script>
   <script>
     loadPartials().then(async () => {
-      const res = await fetch('/data/lessons.json'); 
+      const res = await fetch('../data/lessons.json');
       const list = await res.json();
       const wrap = document.getElementById('lessons-list');
       wrap.innerHTML = list.map(l => `
