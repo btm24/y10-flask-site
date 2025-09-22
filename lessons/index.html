@@ -33,7 +33,7 @@
       const list = await res.json();
       const wrap = document.getElementById('lessons-list');
       wrap.innerHTML = list.map(l => `
-  <a class="card bg-base-100 border hover:border-primary transition" href="./lesson.html?id=${l.id}">
+  <a class="card bg-base-100 border hover:border-primary transition" href="../lesson.html?id=${l.id}">
           <div class="card-body">
             <div class="text-sm opacity-70">${l.date}</div>
             <h2 class="card-title">Lesson ${l.id}: ${l.title}</h2>
